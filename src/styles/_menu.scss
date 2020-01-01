@@ -1,0 +1,35 @@
+.menu {
+	&__ul {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: space-around;
+		border-right: 2px solid black;
+	}
+
+	a {
+		flex-basis: 25%;
+		flex-grow: 1;
+		border-bottom: 1px solid black;
+
+		&:nth-last-child(1) {
+			border-bottom: none;
+		}
+	}
+
+	&__li {
+		height: 100%;
+		font-size: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-evenly;
+		padding: 0 20px;
+
+
+	}
+
+	i {
+		font-size: 50px;
+	}
+}

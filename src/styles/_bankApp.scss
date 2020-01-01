@@ -1,0 +1,8 @@
+@import '_menu.scss';
+@import '_application.scss';
+
+.bankApp__wrapper {
+	display: flex;
+	background-color: #ddd;
+	flex-grow: 1;
+}

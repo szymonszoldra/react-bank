@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide|Roboto&display=swap');
 @import '_sign-in.scss';
 @import '_homepage.scss';
+@import '_mainsite.scss';
 
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 	font-family: 'Roboto';
+}
+
+a {
+	text-decoration: none;
+	color: black;
 }
