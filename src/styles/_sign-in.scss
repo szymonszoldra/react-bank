@@ -1,0 +1,57 @@
+.wrapper {
+	height: 100vh;
+	width: 100vw;
+}
+
+.signIn {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: #eee;
+
+	&__logo {
+		width: 300px;
+	}
+
+	&__title {
+		font-family: 'Audiowide';
+		font-size: 72px;
+		margin-bottom: 50px;
+	}
+
+	&__container {
+		flex-basis: 30vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	&__input {
+		border: none;
+		border-bottom: #333 solid 3px;
+		font-size: 36px;
+		color: #222;
+		background-color: transparent;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&__btn {
+
+		background-color: royalblue;
+		color: white;
+		border: none;
+		font-size: 36px;
+		padding: 20px 0;
+
+		&:hover {
+			cursor: pointer;
+			background-color: darken(royalblue, 5%);
+		}
+	}
+}

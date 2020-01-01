@@ -1,7 +1,9 @@
 import React from 'react';
+import '../styles/style.scss';
+import SignIn from './SignIn';
 
 function App() {
-   return <div className='App'>Hello World</div>;
+   return <SignIn />;
 }
 
 export default App;
