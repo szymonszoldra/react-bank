@@ -1,0 +1,46 @@
+$main-font-size: 30px;
+
+.settings__wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+
+	.settings {
+		display: flex;
+		flex-direction: column;
+
+		&__paragraph {
+			text-align: center;
+			font-size: $main-font-size;
+		}
+
+		&__input {
+			border: none;
+			border-bottom: #333 solid 3px;
+			font-size: $main-font-size;
+			color: #444;
+			background-color: transparent;
+			margin: 20px 0;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		&__btn {
+			background-color: royalblue;
+			color: white;
+			border: none;
+			font-size: $main-font-size;
+			padding: 20px 0;
+
+			&:hover {
+				cursor: pointer;
+				background-color: darken(royalblue, 5%);
+			}
+		}
+	}
+}

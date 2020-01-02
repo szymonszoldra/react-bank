@@ -12,10 +12,16 @@ const loginReducer = (state = INITIAL_STATE, action) => {
 				...state,
 				isLogged: !state.isLogged,
 			}
-			default:
+			case 'CHANGE_CORRECT_PASSWORD':
 				return {
-					...state
+					...state,
+					correctPassword: action.payload,
+						isLogged: !state.isLogged,
 				}
+				default:
+					return {
+						...state
+					}
 	}
 }
 
