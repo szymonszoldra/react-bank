@@ -3,16 +3,25 @@ import '../styles/style.scss';
 import SignIn from './SignIn';
 import Homepage from './Homepage';
 import Mainsite from './Mainsite';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function App() {
+function App({ isLogged }) {
    return (
       <Switch>
-         <Route path='/signin' component={SignIn} />
+         <Route
+            exact
+            path='/signin'
+            render={() => (isLogged ? <Redirect to='/bank' /> : <SignIn />)}
+         />
          <Route path='/bank' component={Mainsite} />
          <Route path='/' component={Homepage} />
       </Switch>
    );
 }
 
-export default App;
+const mapStateToProps = state => ({
+   isLogged: state.login.isLogged
+});
+
+export default connect(mapStateToProps)(App);

@@ -1,50 +1,46 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { getCurrenciesRatio } from '../redux/currenciesRates/currenciesRates.actions';
 
-const TotalPLNCash = ({ cash }) => {
-   const dollarsNumber = cash[1].currencyNumber;
-   const eurosNumber = cash[2].currencyNumber;
-   const poundsNumber = cash[3].currencyNumber;
-   const franksNumber = cash[4].currencyNumber;
-   let estimatedValue = 0;
-   const total = async () => {
-      const currencyRates = await fetch(
-         'http://api.nbp.pl/api/exchangerates/tables/a/?format=json'
-      );
+const TotalPLNCash = ({ balance, rates, getCurrency }) => {
+   const zlotysNumber = balance.filter(cash => cash.currencyName === 'PLN')
+      .currencyNumber;
+   const dollarsNumber = balance.filter(cash => cash.currencyName === 'USD')
+      .currencyNumber;
+   const eurosNumber = balance.filter(cash => cash.currencyName === 'EUR')
+      .currencyNumber;
+   const poundsNumber = balance.filter(cash => cash.currencyName === 'GBP')
+      .currencyNumber;
+   const franksNumber = balance.filter(cash => cash.currencyName === 'CHF')
+      .currencyNumber;
 
-      const readyRates = await currencyRates.json();
-      const arrayOfRates = readyRates[0].rates;
+   getCurrency();
 
-      const dolarRatio = arrayOfRates.filter(
-         currency => currency.code === 'USD'
-      )[0].mid;
+   const estimatedTotal =
+      rates.USD * dollarsNumber +
+      rates.EUR * eurosNumber +
+      rates.GBP * poundsNumber +
+      rates.CHF * franksNumber +
+      zlotysNumber;
 
-      const euroRatio = arrayOfRates.filter(
-         currency => currency.code === 'EUR'
-      )[0].mid;
-
-      const poundRatio = arrayOfRates.filter(
-         currency => currency.code === 'GBP'
-      )[0].mid;
-
-      const frankRatio = arrayOfRates.filter(
-         currency => currency.code === 'CHF'
-      )[0].mid;
-
-      const estimatedTotal =
-         dolarRatio * dollarsNumber +
-         euroRatio * eurosNumber +
-         poundRatio * poundsNumber +
-         frankRatio * franksNumber +
-         cash[0].currencyNumber;
-      console.log(estimatedTotal);
-      estimatedValue = estimatedTotal.toFixed(2);
-   };
-   total();
    return (
-      <p className='balance_total'>
-         Your estimated balance in PLN is: {estimatedValue} zł
-      </p>
+      <>
+         <p className='balance__total'>
+            Your estimated balance in PLN is:{' '}
+            <span className='balance__total-span'>{estimatedTotal}</span>zł
+         </p>
+         <button className='balance__btn'>Oblicz</button>
+      </>
    );
 };
 
-export default TotalPLNCash;
+const mapStateToProps = state => ({
+   balance: state.balance,
+   rates: state.rates
+});
+
+const mapDispatchToProps = dispatch => ({
+   getCurrency: () => dispatch(getCurrenciesRatio)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TotalPLNCash);

@@ -1,74 +1,60 @@
-const INITIAL_STATE = {
-	PLN: {
+const INITIAL_STATE = [{
 		currencyName: 'PLN',
-		currencyNumber: 23632
+		currencyNumber: 23632,
 	},
-	USD: {
+	{
 		currencyName: 'USD',
 		currencyNumber: 3450
 	},
-	EUR: {
+	{
 		currencyName: 'EUR',
 		currencyNumber: 7530
 	},
-	GBP: {
+	{
 		currencyName: 'GBP',
 		currencyNumber: 234
 	},
-	CHF: {
+	{
 		currencyName: 'CHF',
 		currencyNumber: 1200
 	}
-}
+]
+
+
 
 
 const balanceReducer = (state = INITIAL_STATE, action) => {
+
+	const getIndex = name => state.indexOf(item => item.currencyName === name);
 	switch (action.type) {
 		case 'CHANGE_PLN_NUMBER':
-			return {
-				...state,
-				PLN: {
-					currencyName: 'PLN',
-					currencyNumber: action.payload
-				}
-			}
-			case 'CHANGE_USD_NUMBER':
-				return {
-					...state,
-					USD: {
-						currencyName: 'USD',
-						currencyNumber: action.payload
-					}
-				}
+			return [...[...state].split(getIndex('PLN'), 1), {
+				currencyName: 'PLN',
+				currencyNumber: action.payload
+			}]
+		case 'CHANGE_USD_NUMBER':
+			return [...[...state].split(getIndex('USD'), 1), {
+				currencyName: 'USD',
+				currencyNumber: action.payload
+			}]
 
-				case 'CHANGE_EUR_NUMBER':
-					return {
-						...state,
-						EUR: {
-							currencyName: 'EUR',
-							currencyNumber: action.payload
-						}
-					}
-					case 'CHANGE_GBP_NUMBER':
-						return {
-							...state,
-							GBP: {
-								currencyName: 'GBP',
-								currencyNumber: action.payload
-							}
-						}
-						case 'CHANGE_CHF_NUMBER':
-							return {
-								...state,
-								CHF: {
-									currencyName: 'CHF',
-									currencyNumber: action.payload
-								}
-							}
-							default:
-								return {
-									...state
-								}
+		case 'CHANGE_EUR_NUMBER':
+			return [...[...state].split(getIndex('EUR'), 1), {
+				currencyName: 'EUR',
+				currencyNumber: action.payload
+			}]
+		case 'CHANGE_GBP_NUMBER':
+			return [...[...state].split(getIndex('GBP'), 1), {
+				currencyName: 'GBP',
+				currencyNumber: action.payload
+			}]
+		case 'CHANGE_CHF_NUMBER':
+			return [...[...state].split(getIndex('CHF'), 1), {
+				currencyName: 'CHF',
+				currencyNumber: action.payload
+			}]
+		default:
+			return [...state]
 	}
 }
 export default balanceReducer;

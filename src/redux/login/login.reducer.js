@@ -7,13 +7,15 @@ const INITIAL_STATE = {
 
 const loginReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
-		case 'SIGN_IN_THE_USER':
+		case 'CHANGE_IS_LOGGED_STATUS':
 			return {
 				...state,
-				isLogged: action.payload.isLogged,
+				isLogged: !state.isLogged,
 			}
 			default:
-				return state;
+				return {
+					...state
+				}
 	}
 }
 
