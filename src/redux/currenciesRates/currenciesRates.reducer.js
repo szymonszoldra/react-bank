@@ -1,7 +1,7 @@
-let dolarRatio = 'WCZYTAJ KURS';
-let euroRatio = 'WCZYTAJ KURS';
-let poundRatio = 'WCZYTAJ KURS';
-let frankRatio = 'WCZYTAJ KURS';
+let dolarRatio = 0;
+let euroRatio = 0;
+let poundRatio = 0;
+let frankRatio = 0;
 
 
 const INITIAL_STATE = {

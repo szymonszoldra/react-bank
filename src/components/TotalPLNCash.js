@@ -2,34 +2,37 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getCurrenciesRatio } from '../redux/currenciesRates/currenciesRates.actions';
 
-const TotalPLNCash = ({ balance, rates, getCurrency }) => {
-   const zlotysNumber = balance.filter(cash => cash.currencyName === 'PLN')
-      .currencyNumber;
-   const dollarsNumber = balance.filter(cash => cash.currencyName === 'USD')
-      .currencyNumber;
-   const eurosNumber = balance.filter(cash => cash.currencyName === 'EUR')
-      .currencyNumber;
-   const poundsNumber = balance.filter(cash => cash.currencyName === 'GBP')
-      .currencyNumber;
-   const franksNumber = balance.filter(cash => cash.currencyName === 'CHF')
-      .currencyNumber;
-
+const getData = (getCurrency, rates) => {
+   if (rates.USD !== 0) return;
    getCurrency();
+};
+
+const TotalPLNCash = ({ balance, rates, getCurrency }) => {
+   // if (rates.USD !== 'WCZYTAJ KURS') return;
+   const zlotysNumber = balance.filter(cash => cash.currencyName === 'PLN');
+   const dollarsNumber = balance.filter(cash => cash.currencyName === 'USD');
+   const eurosNumber = balance.filter(cash => cash.currencyName === 'EUR');
+   const poundsNumber = balance.filter(cash => cash.currencyName === 'GBP');
+   const franksNumber = balance.filter(cash => cash.currencyName === 'CHF');
+
+   getData(getCurrency, rates);
 
    const estimatedTotal =
-      rates.USD * dollarsNumber +
-      rates.EUR * eurosNumber +
-      rates.GBP * poundsNumber +
-      rates.CHF * franksNumber +
-      zlotysNumber;
+      rates.USD * dollarsNumber[0].currencyNumber +
+      rates.EUR * eurosNumber[0].currencyNumber +
+      rates.GBP * poundsNumber[0].currencyNumber +
+      rates.CHF * franksNumber[0].currencyNumber +
+      zlotysNumber[0].currencyNumber;
 
    return (
       <>
          <p className='balance__total'>
             Your estimated balance in PLN is:{' '}
-            <span className='balance__total-span'>{estimatedTotal}</span>zł
+            <span className='balance__total-span'>
+               {estimatedTotal.toFixed(2)}
+            </span>
+            zł
          </p>
-         <button className='balance__btn'>Oblicz</button>
       </>
    );
 };
@@ -40,7 +43,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-   getCurrency: () => dispatch(getCurrenciesRatio)
+   getCurrency: () => dispatch(getCurrenciesRatio())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TotalPLNCash);
