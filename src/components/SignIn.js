@@ -3,7 +3,8 @@ import logo from '../assets/images/logo512.png';
 import { Link } from 'react-router-dom';
 import {
    changeStateOfTheLogin,
-   changeStateOfThePassword
+   changeStateOfThePassword,
+   clearTheForms
 } from '../redux/signIn/signIn.actions';
 import { changeIsLoggedStatus } from '../redux/login/login.actions';
 import { connect } from 'react-redux';
@@ -14,15 +15,19 @@ const SignIn = ({
    currentStateOfLogin,
    currentStateOfPassword,
    changeIsLoggedStatus,
+   clearTheForms,
    correctLogin,
    correctPassword
 }) => {
    const changeStatus = () => {
+      clearTheForms();
       if (
          currentStateOfLogin === correctLogin &&
          currentStateOfPassword === correctPassword
       ) {
          changeIsLoggedStatus();
+      } else {
+         alert('BŁĘDNE DANE LOGOWANIA');
       }
    };
    return (
@@ -58,7 +63,8 @@ const SignIn = ({
 const mapDispatchToProps = dispatch => ({
    changeStateOfTheLogin: value => dispatch(changeStateOfTheLogin(value)),
    changeStateOfThePassword: value => dispatch(changeStateOfThePassword(value)),
-   changeIsLoggedStatus: () => dispatch(changeIsLoggedStatus())
+   changeIsLoggedStatus: () => dispatch(changeIsLoggedStatus()),
+   clearTheForms: () => dispatch(clearTheForms())
 });
 
 const MapStateToProps = state => ({

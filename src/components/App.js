@@ -12,9 +12,16 @@ function App({ isLogged }) {
          <Route
             exact
             path='/signin'
-            render={() => (isLogged ? <Redirect to='/bank' /> : <SignIn />)}
+            render={() =>
+               isLogged ? <Redirect to='/bank/balance' /> : <SignIn />
+            }
          />
-         <Route path='/bank' component={Mainsite} />
+         <Route
+            path='/bank'
+            render={() =>
+               !isLogged ? <Redirect to='/signin' /> : <Mainsite />
+            }
+         />
          <Route path='/' component={Homepage} />
       </Switch>
    );

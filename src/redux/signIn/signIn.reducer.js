@@ -15,10 +15,16 @@ const signInReducer = (state = INITIAL_STATE, action) => {
             ...state,
             password: action.payload
          };
-      default:
+      case 'CLEAR_THE_FORMS':
          return {
-            ...state
-         };
+            ...state,
+            login: '',
+               password: ''
+         }
+         default:
+            return {
+               ...state
+            };
    }
 };
 
