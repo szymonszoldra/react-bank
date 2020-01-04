@@ -1,0 +1,55 @@
+.currencies {
+	display: flex;
+	height: 100%;
+	width: 100%;
+
+	&__title {
+		font-size: 30px;
+		text-align: center;
+	}
+
+	&__prices {
+		display: flex;
+		flex-direction: column;
+		width: 30%;
+		margin: 80px 0 0 80px;
+
+		&-container {
+			display: flex;
+			justify-content: space-between;
+			margin: 5px 0;
+
+			&:nth-child(2) {
+				font-weight: bold;
+				margin: 20px 0;
+			}
+		}
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		font-size: 38px;
+		justify-content: center;
+		align-items: center;
+
+		&-wrapper {
+			margin-bottom: 50px;
+		}
+
+		input {
+			font-size: 18px;
+		}
+
+		select {
+			font-size: 18px;
+		}
+
+		button {
+			font-size: 18px;
+			padding: 0 10px;
+		}
+	}
+
+}

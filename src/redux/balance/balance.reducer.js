@@ -1,22 +1,44 @@
+// const INITIAL_STATE = [{
+// 		currencyName: 'PLN',
+// 		currencyNumber: 23632,
+// 	},
+// 	{
+// 		currencyName: 'USD',
+// 		currencyNumber: 3450
+// 	},
+// 	{
+// 		currencyName: 'EUR',
+// 		currencyNumber: 7530
+// 	},
+// 	{
+// 		currencyName: 'GBP',
+// 		currencyNumber: 234
+// 	},
+// 	{
+// 		currencyName: 'CHF',
+// 		currencyNumber: 1200
+// 	}
+// ]
+
 const INITIAL_STATE = [{
 		currencyName: 'PLN',
-		currencyNumber: 23632,
+		currencyNumber: 1000,
 	},
 	{
 		currencyName: 'USD',
-		currencyNumber: 3450
+		currencyNumber: 1000
 	},
 	{
 		currencyName: 'EUR',
-		currencyNumber: 7530
+		currencyNumber: 1000
 	},
 	{
 		currencyName: 'GBP',
-		currencyNumber: 234
+		currencyNumber: 1000
 	},
 	{
 		currencyName: 'CHF',
-		currencyNumber: 1200
+		currencyNumber: 1000
 	}
 ]
 
@@ -24,35 +46,45 @@ const INITIAL_STATE = [{
 
 
 const balanceReducer = (state = INITIAL_STATE, action) => {
-
-	const getIndex = name => state.indexOf(item => item.currencyName === name);
+	let temp;
+	const getIndex = name => state.findIndex(item => item.currencyName === name);
 	switch (action.type) {
 		case 'CHANGE_PLN_NUMBER':
-			return [...[...state].split(getIndex('PLN'), 1), {
+			temp = state[getIndex('PLN')].currencyNumber;
+			state.splice(getIndex('PLN'), 1);
+			return [...state, {
 				currencyName: 'PLN',
-				currencyNumber: action.payload
+				currencyNumber: temp + action.payload
 			}]
 		case 'CHANGE_USD_NUMBER':
-			return [...[...state].split(getIndex('USD'), 1), {
+			temp = state[getIndex('USD')].currencyNumber;
+			state.splice(getIndex('USD'), 1);
+			return [...state, {
 				currencyName: 'USD',
-				currencyNumber: action.payload
+				currencyNumber: temp + action.payload
 			}]
-
 		case 'CHANGE_EUR_NUMBER':
-			return [...[...state].split(getIndex('EUR'), 1), {
+			temp = state[getIndex('EUR')].currencyNumber;
+			state.splice(getIndex('EUR'), 1);
+			return [...state, {
 				currencyName: 'EUR',
-				currencyNumber: action.payload
+				currencyNumber: temp + action.payload
 			}]
 		case 'CHANGE_GBP_NUMBER':
-			return [...[...state].split(getIndex('GBP'), 1), {
+			temp = state[getIndex('GBP')].currencyNumber;
+			state.splice(getIndex('GBP'), 1);
+			return [...state, {
 				currencyName: 'GBP',
-				currencyNumber: action.payload
+				currencyNumber: temp + action.payload
 			}]
 		case 'CHANGE_CHF_NUMBER':
-			return [...[...state].split(getIndex('CHF'), 1), {
+			temp = state[getIndex('CHF')].currencyNumber;
+			state.splice(getIndex('CHF'), 1);
+			return [...state, {
 				currencyName: 'CHF',
-				currencyNumber: action.payload
+				currencyNumber: temp + action.payload
 			}]
+
 		default:
 			return [...state]
 	}
