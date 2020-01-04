@@ -207,6 +207,7 @@ const Currencies = ({
                   placeholder='How much?'
                   onChange={e => changeHowMuchSell(e.target.value)}
                   value={howMuchSell}
+                  type='number'
                />
                <button onClick={sellCurrency}>Sell</button>
             </div>
@@ -229,6 +230,7 @@ const Currencies = ({
                   placeholder='How much?'
                   onChange={e => changeHowMuchBuy(e.target.value)}
                   value={howMuchBuy}
+                  type='number'
                />
                <button onClick={buyCurrency}>Buy</button>
             </div>
