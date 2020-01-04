@@ -55,3 +55,18 @@
 		}
 	}
 }
+
+@media (max-width: 450px) {
+	.signIn {
+
+		&__title {
+			font-size: 50px;
+		}
+
+
+		&__input {
+			font-size: 26px;
+
+		}
+	}
+}

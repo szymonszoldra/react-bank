@@ -26,3 +26,23 @@
 		}
 	}
 }
+
+@media (max-width: 450px) {
+	.header {
+
+		&__logo {
+			width: 50px;
+			margin-left: 20px;
+		}
+
+		&__title {
+			font-size: 30px;
+		}
+
+		&__login {
+			margin-right: 20px;
+			font-size: 18px;
+
+		}
+	}
+}

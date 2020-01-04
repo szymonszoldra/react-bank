@@ -53,3 +53,29 @@
 	}
 
 }
+
+@media (max-width: 450px) {
+
+	.currencies {
+		flex-direction: column;
+
+		&__prices {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			margin: 0px;
+			padding: 30px;
+
+			&-container {
+				display: flex;
+				justify-content: space-between;
+				margin: 5px 0;
+
+				&:nth-child(2) {
+					font-weight: bold;
+					margin: 20px 0;
+				}
+			}
+		}
+	}
+}

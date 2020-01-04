@@ -33,3 +33,31 @@
 		padding: 50px
 	}
 }
+
+@media (max-width: 450px) {
+	.about {
+		&__title {
+			font-size: 22px;
+			margin: 10px 0;
+		}
+
+		&__container {
+			flex-direction: column;
+		}
+
+		&__img {
+			width: 200px;
+			margin-bottom: 50px;
+
+		}
+
+		&__text {
+			padding: 0 40px;
+		}
+
+		&__tile {
+			padding: 20px
+		}
+	}
+
+}
