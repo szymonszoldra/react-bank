@@ -12,13 +12,12 @@ small web-app which imitates bank application, main currency is **PLN**,
 
 #### Installation
 
-1. clone this repository to your folder
-2. open your terminal in main folder of the repository
+1. clone this repository to your directory
+2. open your terminal in main directory of the repository
 3. write inside:
 
 ```sh
 npm install
-
 npm start
 ```
 
