@@ -19,9 +19,50 @@ const Savings = ({
    changePLNFormInSavings,
    changeTransferFormInSavings,
    changeSavings,
-   changePLNumber
+   changePLNNumber
 }) => {
    const currentPlnBalance = plnBalance[0].currencyNumber;
+
+   const transferCurrencyToSavingsAccount = () => {
+      if (sendPLNValue === '') return;
+
+      if (sendPLNValue > currentPlnBalance) {
+         clearFormsInSavings();
+         return alert('You do not have enough PLN');
+      }
+
+      console.log(changePLNNumber);
+      console.log(sendPLNValue);
+      changePLNNumber(-sendPLNValue);
+      changeSavings(sendPLNValue);
+      clearFormsInSavings();
+
+      alert('Everything went correct');
+   };
+
+   const transferCurrencyFromSavingsAccount = () => {
+      if (transferToPLN === '') return;
+
+      if (transferToPLN > onSavings) {
+         clearFormsInSavings();
+         return alert('You do not have enough PLN on your SA');
+      }
+      changeSavings(-transferToPLN);
+      changePLNNumber(transferToPLN);
+      clearFormsInSavings();
+
+      alert('Everything went correct');
+   };
+
+   const increaseTheMoneyOnTheSavingsAccount = () => {
+      if (onSavings === 0) return;
+
+      const howMuch = onSavings * (currentPercent / 100);
+
+      changeSavings(howMuch);
+   };
+
+   setTimeout(increaseTheMoneyOnTheSavingsAccount, 3000);
 
    return (
       <div className='savings'>
@@ -38,14 +79,14 @@ const Savings = ({
                onChange={e => changePLNFormInSavings(e.target.value)}
                value={sendPLNValue}
             />
-            <button>Send</button>
+            <button onClick={transferCurrencyToSavingsAccount}>Send</button>
          </div>
          <div className='savings__percent'>
             <p className='savings__percent-info'>
                Current offer{' '}
                <span className='savings__percent-span'>{currentPercent}%</span>
             </p>
-            <p className='savings__percent-p'>(Every 5 seconds)</p>
+            <p className='savings__percent-p'>(Every 3 seconds)</p>
          </div>
          <div className='savings__account'>
             <h2 className='savings__account-h2'>
@@ -58,7 +99,12 @@ const Savings = ({
                onChange={e => changeTransferFormInSavings(e.target.value)}
                value={transferToPLN}
             />
-            <button className='savings__btn'>Transfer</button>
+            <button
+               className='savings__btn'
+               onClick={transferCurrencyFromSavingsAccount}
+            >
+               Transfer
+            </button>
          </div>
       </div>
    );

@@ -26,7 +26,7 @@ const savingsReducer = (state = INITIAL_STATE, action) => {
 					case 'CHANGE_SAVINGS':
 						return {
 							...state,
-							onSavings: state.onSavings + action.payload
+							onSavings: (Number(state.onSavings) + Number(action.payload)).toFixed(2)
 						}
 						default:
 							return {

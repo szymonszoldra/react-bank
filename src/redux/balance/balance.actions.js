@@ -1,10 +1,7 @@
-export const changePLNNumber = number => {
-	return {
-		type: 'CHANGE_PLN_NUMBER',
-		payload: Number(number),
-	}
-}
-
+export const changePLNNumber = (number) => ({
+	type: 'CHANGE_PLN_NUMBER',
+	payload: Number(number),
+})
 export const changeUSDNumber = (number) => {
 	return {
 		type: 'CHANGE_USD_NUMBER',
