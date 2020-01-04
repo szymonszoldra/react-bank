@@ -70,7 +70,7 @@ const Savings = ({
             <p className='savings__percent-p'>
                Your PLN{' '}
                <span className='savings__percent-span'>
-                  {currentPlnBalance}
+                  {Number(currentPlnBalance).toFixed(2)}
                </span>
             </p>
             <input

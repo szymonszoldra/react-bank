@@ -5,7 +5,7 @@ const CurrencyBalance = props => {
       <p className='balance__single-currency'>
          Your balance in {props.currencyName} is:{' '}
          <span className='balance__span'>
-            {props.currencyNumber.toFixed(2)}
+            {Number(props.currencyNumber).toFixed(2)}
          </span>
       </p>
    );

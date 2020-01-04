@@ -24,15 +24,17 @@ const TotalPLNCash = ({ balance, rates, getCurrency }) => {
       rates.CHF * franksNumber[0].currencyNumber +
       zlotysNumber[0].currencyNumber;
 
+   console.log(typeof estimatedTotal, estimatedTotal);
    return (
       <>
          <p className='balance__total'>
             Your estimated balance in PLN is:{' '}
             <span className='balance__total-span'>
-               {estimatedTotal.toFixed(2)}
+               {' '}
+               {Number(estimatedTotal).toFixed(2)}{' '}
             </span>
-            zł
-         </p>
+            zł{' '}
+         </p>{' '}
       </>
    );
 };
