@@ -6,8 +6,9 @@ import loginReducer from './login/login.reducer';
 import balanceReducer from './balance/balance.reducer';
 import currenciesRates from './currenciesRates/currenciesRates.reducer';
 import signInReducer from './signIn/signIn.reducer';
-import changePasswordReducer from './changePassword/changePassword.reducer'
-import currencyChangeReducer from './currencyChange/currencyChange.reducer'
+import changePasswordReducer from './changePassword/changePassword.reducer';
+import currencyChangeReducer from './currencyChange/currencyChange.reducer';
+import savingsReducer from './savings/savings.reducer';
 
 export default combineReducers({
    login: loginReducer,
@@ -15,5 +16,6 @@ export default combineReducers({
    rates: currenciesRates,
    formValues: signInReducer,
    changePasswordFormValues: changePasswordReducer,
-   currencyChange: currencyChangeReducer
+   currencyChange: currencyChangeReducer,
+   savings: savingsReducer
 });

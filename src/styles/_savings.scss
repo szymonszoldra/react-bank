@@ -1,0 +1,55 @@
+.savings {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+
+	input {
+		border: none;
+		border-bottom: #333 solid 3px;
+		font-size: 16px;
+		color: #222;
+		background-color: transparent;
+		margin: 10px 0;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	button {
+		background-color: royalblue;
+		color: white;
+		border: none;
+		font-size: 36px;
+		padding: 20px 30px;
+
+		&:hover {
+			cursor: pointer;
+			background-color: darken(royalblue, 5%);
+		}
+	}
+
+
+	>* {
+		flex-basis: 50%;
+		flex-grow: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	&__form {
+		font-size: 30px;
+	}
+
+	&__percent {
+		font-size: 30px;
+	}
+
+	&__account {
+		&-h2 {
+			font-size: 50px;
+		}
+	}
+}

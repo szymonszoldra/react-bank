@@ -1,25 +1,3 @@
-// const INITIAL_STATE = [{
-// 		currencyName: 'PLN',
-// 		currencyNumber: 23632,
-// 	},
-// 	{
-// 		currencyName: 'USD',
-// 		currencyNumber: 3450
-// 	},
-// 	{
-// 		currencyName: 'EUR',
-// 		currencyNumber: 7530
-// 	},
-// 	{
-// 		currencyName: 'GBP',
-// 		currencyNumber: 234
-// 	},
-// 	{
-// 		currencyName: 'CHF',
-// 		currencyNumber: 1200
-// 	}
-// ]
-
 const INITIAL_STATE = [{
 		currencyName: 'PLN',
 		currencyNumber: 1000,
