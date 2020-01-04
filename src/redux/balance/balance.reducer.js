@@ -32,35 +32,35 @@ const balanceReducer = (state = INITIAL_STATE, action) => {
 			state.splice(getIndex('PLN'), 1);
 			return [...state, {
 				currencyName: 'PLN',
-				currencyNumber: temp + action.payload
+				currencyNumber: (Number(temp) + Number(action.payload)).toFixed(2)
 			}]
 		case 'CHANGE_USD_NUMBER':
 			temp = state[getIndex('USD')].currencyNumber;
 			state.splice(getIndex('USD'), 1);
 			return [...state, {
 				currencyName: 'USD',
-				currencyNumber: temp + action.payload
+				currencyNumber: (Number(temp) + Number(action.payload)).toFixed(2)
 			}]
 		case 'CHANGE_EUR_NUMBER':
 			temp = state[getIndex('EUR')].currencyNumber;
 			state.splice(getIndex('EUR'), 1);
 			return [...state, {
 				currencyName: 'EUR',
-				currencyNumber: temp + action.payload
+				currencyNumber: (Number(temp) + Number(action.payload)).toFixed(2)
 			}]
 		case 'CHANGE_GBP_NUMBER':
 			temp = state[getIndex('GBP')].currencyNumber;
 			state.splice(getIndex('GBP'), 1);
 			return [...state, {
 				currencyName: 'GBP',
-				currencyNumber: temp + action.payload
+				currencyNumber: (Number(temp) + Number(action.payload)).toFixed(2)
 			}]
 		case 'CHANGE_CHF_NUMBER':
 			temp = state[getIndex('CHF')].currencyNumber;
 			state.splice(getIndex('CHF'), 1);
 			return [...state, {
 				currencyName: 'CHF',
-				currencyNumber: temp + action.payload
+				currencyNumber: (Number(temp) + Number(action.payload)).toFixed(2)
 			}]
 
 		default:
