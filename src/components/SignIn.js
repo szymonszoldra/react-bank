@@ -52,7 +52,7 @@ const SignIn = ({
                />
                <button className='signIn__btn' onClick={() => changeStatus()}>
                   {' '}
-                  Zaloguj{' '}
+                  Sign In{' '}
                </button>
             </div>
          </div>
