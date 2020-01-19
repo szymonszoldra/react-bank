@@ -36,3 +36,9 @@ the application will start by default on **localhost:3000/**
 -  Redux
 -  Scss
 -  HTML5
+
+##### Example algorithm
+
+Scheme block of the selling currency algorithm
+
+![blockScheme](https://raw.githubusercontent.com/szymonszoldra/react-bank/master/blockScheme.png)
